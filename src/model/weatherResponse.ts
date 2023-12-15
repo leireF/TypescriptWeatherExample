@@ -10,23 +10,40 @@ import foggy from '../images/foggy.png';
 
 // TODO: Create the interface of Weather Response
 
-export interface WeatherResponse {
-
+export interface RespuestaTiempo {
+    weather: [Tiempo];
+    base: string;
+    main: Main;
+    visibility: number;
+    wind: Viento;
+    name: string;
 }
 
-interface Wind {
-
+interface Viento {
+    speed: number;
+    deg: number;
+    gust: number
 }
 
-interface Weather {
 
+interface Tiempo {
+    id: number;
+    main: string;
+    description: string;
+    icon: string;
 }
 
 interface Main {
-
+    temp: number;
+    feels_like: number;
+    temp_min: number;
+    temp_max: number;
+    pressure: number;
+    humidity: number;
 }
 
-export const WeatherIcon = {
+
+export const IconoTiempo = {
     "01d": sunny,
     "01n": sunny,
     "02d": clearCloudy,
@@ -47,7 +64,7 @@ export const WeatherIcon = {
     "50n": foggy,
 } as const;
 
-export const DayOfWeek = [
+export const DiasDeSemana = [
     "Monday",
     "Tuesday",
     "Wednesday",
@@ -57,4 +74,4 @@ export const DayOfWeek = [
     "Sunday"
 ];
 
-export type WeatherIcontype = keyof typeof WeatherIcon;
+export type TiempoIconoTipo = keyof typeof IconoTiempo;
